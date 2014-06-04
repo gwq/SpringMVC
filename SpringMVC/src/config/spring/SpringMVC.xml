@@ -20,8 +20,7 @@
         http://www.springframework.org/schema/mvc  
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">  
       
-       <!-- 自动扫描controller,service等组件的包名，component-scan只扫描component组件-->  
-      <context:component-scan base-package="com.app" ></context:component-scan>  
+       
           
         <!--  视图解释类  -->  
         <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
@@ -84,6 +83,9 @@
 				<tx:method name="*" />
 			</tx:attributes>
 		</tx:advice> 
+		
+		<!-- 自动扫描controller,service等组件的包名，component-scan只扫描component组件-->  
+       <context:component-scan base-package="com.app" ></context:component-scan>  
 	        
 	        <!-- 默认的注解映射的支持配置 --> 
 	        <mvc:annotation-driven />  
