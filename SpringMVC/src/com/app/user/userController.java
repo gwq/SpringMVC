@@ -35,6 +35,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.app.dao.UserDao;
 import com.app.service.UserService;
 
 //@Scope("prototype") 原型模式：每次请求生成一个controller对象，默认为单例模式，只有一个对象，单例模式下不能有类变量

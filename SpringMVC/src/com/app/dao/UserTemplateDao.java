@@ -1,16 +1,14 @@
-package com.app.service;
+package com.app.dao;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Repository;
 
 import com.app.model.TestModel;
 
-@Service
-@Transactional
-public class UserTemplateService  extends HibernateDaoSupport{
+@Repository
+public class UserTemplateDao  extends HibernateDaoSupport{
 	
 	@Autowired
 	public void setSessionFacotry(SessionFactory sessionFactory){

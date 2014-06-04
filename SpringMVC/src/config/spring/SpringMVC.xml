@@ -55,7 +55,7 @@
         </bean>  
         -->
 	        
-	    <!-- 支持 @Transactional 标记 -->
+	    <!-- 支持 @Transactional 标记，对于没有在aop范围内的组件如果想加事务则需要加该注解 -->
 		<tx:annotation-driven/>
 		
 	
@@ -74,7 +74,7 @@
 		</aop:config>
 	    
 	    
-		<!-- 基本事务定义,使用transactionManager作事务管理,默认get*方法的事务为readonly,其余方法按默认设置.
+		<!-- 基本事务定义,事务是定义在service层，而不是dao层,使用transactionManager作事务管理,默认get*方法的事务为readonly,其余方法按默认设置.
 				 默认的设置请参考Spring文档事务一章.  -->
 		<tx:advice id="txAdvice"  transaction-manager="transactionManager">
 			<tx:attributes>

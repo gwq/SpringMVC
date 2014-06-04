@@ -1,32 +1,26 @@
 package com.app.service;
 
-import org.hibernate.Query;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.app.model.TestModel;
+import com.app.dao.UserDao;
+import com.app.dao.UserTemplateDao;
 
 @Service
-@Transactional
-public class UserService{
+//@Transactional 
+//在配置文件中已做了事务切面配置，如下。如果没有配置则需要通过@Transactional来标记,数据提交必须要有事务控制
+//<aop:advisor pointcut="execution(* com.app.service..*Service.*(..))" advice-ref="txAdvice"/>
+public class UserService {
 	
 	@Autowired
-	private SessionFactory sessionFactory;
-	
+	private UserDao userDao;
+	@Autowired
+	private UserTemplateDao userTemplateDao;
+    
 	public int userNum(){
-		if (sessionFactory != null){
-			System.out.println("SessionFacotory is NOT NULL!!!");
-		}
-		//Query query = sessionFactory.getCurrentSession().createSQLQuery("INSERT INTO `bo_gefms_testmodel` (`id`,`name`) VALUES (1,'ge')");
-		//query.executeUpdate();
-		TestModel tm = new TestModel();
-		//tm.setId(1);
-		tm.setName("ds");
-		sessionFactory.getCurrentSession().save(tm);
-		return 3;
+		userTemplateDao.userNum();
+		return userDao.userNum();
 	}
+
 }
