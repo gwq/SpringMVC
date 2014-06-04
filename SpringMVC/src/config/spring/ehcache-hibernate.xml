@@ -1,9 +1,10 @@
-<ehcache>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../config/ehcache.xsd">
 	<diskStore path="java.io.tmpdir" />
 	<!-- Object cache -->
 	<!-- 特别设定EncryptKey类的Cache，内存中最多只保存5000个User实例，而且idle 600秒过期
 		 而其它类没有设置，则使用defaultCache中的默认设定 -->
-	<cache name="com.smartsecuri.drm.model.EncryptKey" maxElementsInMemory="5000" eternal="false"
+	<!--
+		<cache name="com.smartsecuri.drm.model.EncryptKey" maxElementsInMemory="5000" eternal="false"
 		timeToIdleSeconds="600" overflowToDisk="true" />
 		<cache name="com.smartsecuri.drm.model.ReceiveUser" maxElementsInMemory="10000" eternal="false"
 		timeToIdleSeconds="180" timeToLiveSeconds="400"  overflowToDisk="true" />
@@ -17,22 +18,23 @@
 		timeToIdleSeconds="180" timeToLiveSeconds="400" overflowToDisk="true" />
 		<cache name="com.smartsecuri.drm.model.SysLog" maxElementsInMemory="10000" eternal="false"
 		timeToIdleSeconds="180" timeToLiveSeconds="400" overflowToDisk="true" />
-	<!-- 
+	-->
 		<defaultCache maxElementsInMemory="100000" eternal="false" overflowToDisk="true" />
- 	-->
+ 		<cache name="com.app.model.TestModel" maxElementsInMemory="10000" eternal="false"
+		timeToIdleSeconds="180" timeToLiveSeconds="400" overflowToDisk="true" />
  	
- 	<!-- query cache设置为true将会创建两个缓存区域：一个用于保存查询结果集 (
-org.hibernate.cache.StandardQueryCache)；另一个则用于保存最近查询的一系列表的时间戳(org.hibernate.cache.UpdateTimestampsCache)。
- 	 -->
- 	<cache name="org.hibernate.cache.UpdateTimestampsCache"
-	maxElementsInMemory="5000"
-	eternal="true"
-	overflowToDisk="true"/>
-	
-	<cache name="org.hibernate.cache.StandardQueryCache"
-	maxElementsInMemory="10000"
-	eternal="false"
-	timeToLiveSeconds="180"
-	overflowToDisk="true"/>
+	 	<!-- query cache设置为true将会创建两个缓存区域：一个用于保存查询结果集 (
+	org.hibernate.cache.StandardQueryCache)；另一个则用于保存最近查询的一系列表的时间戳(org.hibernate.cache.UpdateTimestampsCache)。
+	 	 -->
+	 	<cache name="org.hibernate.cache.UpdateTimestampsCache"
+		maxElementsInMemory="5000"
+		eternal="true"
+		overflowToDisk="true"/>
+		
+		<cache name="org.hibernate.cache.StandardQueryCache"
+		maxElementsInMemory="10000"
+		eternal="false"
+		timeToLiveSeconds="180"
+		overflowToDisk="true"/>
  	
 </ehcache>

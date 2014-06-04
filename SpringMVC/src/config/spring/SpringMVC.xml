@@ -62,9 +62,11 @@
 	
 		<!-- 支持 @AspectJ 标记，在SpringMVC中，对controller、service等组件的切面必须在SpringMVC配置文件中处理，不能在Spring配置文件中处理-->
 		<aop:aspectj-autoproxy/> 
-		<!-- 需要在配置文件中手动注册切面的bean，切点和其他配置可以在注解中完成 -->
+		<!--通过注解 @Component来标记切面bean，使得spring可以扫描获取注册bean  或   需要在配置文件中手动注册切面的bean，切点和其他配置可以在注解中完成  -->
+		<!--
 	    <bean id="demoAdvice" class="com.app.advice.DemoAdvice"/> 
 	    <bean id="serviceAdvice" class="com.app.advice.ServiceAdvice"/>  
+	    -->
 		
 		<!-- 以AspectJ方式 定义 AOP -->
 		<aop:config proxy-target-class="true">

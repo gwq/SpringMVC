@@ -8,9 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 
 @Entity
 @Table(name = "bo_gefms_testmodel")//审核员组表
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)//可读可写 
 public class TestModel implements Serializable{
 	
 	/**

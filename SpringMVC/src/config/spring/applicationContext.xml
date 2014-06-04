@@ -35,6 +35,8 @@
 	<!-- 以下三行配置为 com.app.springtest.TestMain所进行测试的配置，与web项目无关，web不处理以下内容，而是在SpringMVC配置文件中处理-->
 	<context:component-scan base-package="com.app" ></context:component-scan> 
 	<aop:aspectj-autoproxy/> 
-	<!-- 切面的bean需要在配置文件中手动配置 -->
-    <bean id="demoAdvice" class="com.app.advice.DemoAdvice"/>  
+	<!--通过注解 @Component来标记切面bean，使得spring可以扫描获取注册bean  或   需要在配置文件中手动注册切面的bean，切点和其他配置可以在注解中完成  -->
+	<!--
+    <bean id="demoAdvice" class="com.app.advice.DemoAdvice"/> 
+    --> 
 </beans>   
