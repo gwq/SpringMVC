@@ -56,7 +56,7 @@
         -->
 	        
 	    <!-- 支持 @Transactional 标记，对于没有在aop范围内的组件如果想加事务则需要加该注解 -->
-		<tx:annotation-driven/>
+		<tx:annotation-driven  transaction-manager="transactionManager"/>
 		
 	
 		<!-- 支持 @AspectJ 标记，在SpringMVC中，对controller、service等组件的切面必须在SpringMVC配置文件中处理，不能在Spring配置文件中处理-->
@@ -87,8 +87,8 @@
 		<!-- 自动扫描controller,service等组件的包名，component-scan只扫描component组件-->  
        <context:component-scan base-package="com.app" ></context:component-scan>  
 	        
-	        <!-- 默认的注解映射的支持配置 --> 
-	        <mvc:annotation-driven />  
+	    <!-- 默认的注解映射的支持配置 --> 
+	    <mvc:annotation-driven />  
 	        
 	        <!--  <mvc:annotation-driven /> 实际所做的工作  -->
 	        <!--
